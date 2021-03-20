@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Welcome - text input</title>
+</head>
+<body>
+    <main class="container">
+        <h2 class="d-flex justify-content-center my-5 text-success">
+            <strong id="powitanie">...</strong>
+        </h2>
+
+
+
+        <div class="d-flex justify-content-center my-5">
+           <input type="text" id="imie" class="form-control" style="width: 300px" placeholder="Halinka" >
+           <button id="przycisk" class="btn btn-primary">POWITANIE</button>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- miejsce na JS -->
+    <script>
+    // kod JS
+
+        var objektDaty = new Date();
+        var nrMiesiaca = objektDaty.getMonth()+1;
+        var godzina = objektDaty.getHours();
+
+        console.log(nrMiesiaca);
+        console.log(godzina);
+
+
+        function wyborPoryRoku()
+        {
+              //jaka jest aktualnie pora roku?
+              var aktualnaPora ='';
+
+              if(nrMiesiaca >= 11 || nrMiesiaca <= 2){
+                aktualnaPora = 'zimowy';
+              }else if(nrMiesiaca<=6){
+                aktualnaPora = 'wiosenny';
+              }else if(nrMiesiaca<=8){
+                aktualnaPora = 'letni';
+              }else{
+                aktualnaPora = 'jesienny';
+              }
+
+            return aktualnaPora;
+        }
+
+
+        function wyborPoryDnia(){
+            //jaka jest aktualnie pora dnia?
+            var aktualnaPoraDnia ='';
+
+            if(godzina <= 13){
+                aktualnaPoraDnia = 'poranek';
+            }else{
+                aktualnaPoraDnia = 'wieczór';
+            }
+
+            return aktualnaPoraDnia;
+        }
+
+
+
+
+
+        //przyciśnięcie przycisku
+        $('#przycisk').click(function(){
+            console.log('przycisnięto');
+
+            //przypisanie do zmiennej zawartości z inputa
+            var zawartoscInputa = $('#imie').val();
+
+            
+            var poraRoku = wyborPoryRoku();
+            var poraDnia = wyborPoryDnia();
+             
+            //podmiana treści w elemencie strong na górze strony
+            $('#powitanie').text('Witaj! ' + zawartoscInputa + ' w ten ' + poraRoku + ' ' + poraDnia);
+
+        });
+
+
+
+    </script>
+
+</body>
+</html>
