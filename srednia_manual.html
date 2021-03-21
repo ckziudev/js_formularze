@@ -13,7 +13,7 @@
 <body>
     <main class="container">
         <h4 class="d-flex justify-content-center my-5">
-            <strong>Tabliczka mnożenia</strong>
+            <strong>Liczenie średniej</strong>
         </h4>
         <div class="d-flex justify-content-center my-5">
 
@@ -22,16 +22,16 @@
                     <input type="text" id="liczba1" class="form-control" style="width: 100px">
                 </div>
                 <div class="col">
-                    x
+                   ,
                 </div>
                 <div class="col">
                     <input type="text" id="liczba2" class="form-control" style="width: 100px">
                 </div>
                 <div class="col">
-                    =
+                   ,
                 </div>
                 <div class="col">
-                    <input type="text" id="wynik" class="form-control" style="width: 100px">
+                    <input type="text" id="liczba3" class="form-control" style="width: 100px">
                 </div>
             </div>
       
@@ -41,18 +41,15 @@
 
         <div class="d-flex justify-content-center my-5">
            
-           <button id="przycisk" class="btn btn-primary">SPRAWDZ!</button>
+           <button id="przycisk" class="btn btn-primary">OBLICZ!</button>
         </div>
-        <div class="d-flex justify-content-center my-5">
-           
-                <div id="wynik-poprawny" class="alert alert-success h4" role="alert" style="display: none">
-                Zgadza się!
-              </div>
 
-              <div id="wynik-bledny" class="alert alert-danger h4" role="alert" style="display: none">
-                Błędne oblczenie! :(
-              </div>
+
+
+        <div class="d-flex justify-content-center my-5">
+           <strong class="text-success" id="srednia">-</strong>
         </div>
+ 
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -61,45 +58,22 @@
     <script>
     // kod JS
 
-        //zareagować po przyciśnięciu buttona
-        $('#przycisk').click(function(){
+    $('#przycisk').click(()=>{
 
-            //ukrywamy alerty
-            $('.alert').hide();
+        //let liczbax = parseInt('3463')
 
-            //pobranie wartości z liczba1
-            var liczba1 = $('#liczba1').val();
+        let liczba1 = parseInt( $('#liczba1').val() );
+        let liczba2 = parseInt( $('#liczba2').val() );
+        let liczba3 = parseInt( $('#liczba3').val() );
 
-            //pobranie wartości z liczba2
-            var liczba2 = $('#liczba2').val();
+        let wynik = (liczba1 + liczba2 + liczba3)/3;
 
-            //przemnożenie liczb
-            var wynikMnozenia = liczba1 * liczba2;
+        //console.log(wynik);
 
-            //pobranie wartości z wyniku
-            var naszWynik = $('#wynik').val();
+        //document.getElementById('srednia').innerText = wynik;
+        $('#srednia').text( wynik );
 
-            //porównanie wynik z mnożenia i wartości z wyniku
-            if(wynikMnozenia == naszWynik){
-                //jeśli lewa równa sie prawej to alert success
-               // $('#wynik-bledny').hide();
-                $('#wynik-poprawny').show();
-
-            }else{
-                // jeśli nie alert danger
-               // $('#wynik-poprawny').hide();
-                $('#wynik-bledny').show();
-
-            }
-
-        });
-
-
-
-
-
-        //????? przycisk reset
-
+    });
 
 
 
