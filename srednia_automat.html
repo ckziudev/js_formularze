@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Średnia z dowolnej ilości liczb</title>
+</head>
+<body>
+    <main class="container">
+        <h4 class="d-flex justify-content-center mt-5 mb-2">
+            <strong>Liczenie średniej z dowolnej ilości liczb (;)</strong>
+        </h4>
+        <div class="d-flex justify-content-center">
+                    <input type="text" id="liczby" class="form-control" style="width: 200px">
+                    <button id="przycisk" class="btn btn-success">OBLICZ</button>
+         </div>
+
+         <div class="d-flex justify-content-center">
+            <strong id="srednia" class="text-success">
+                -
+            </strong>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- miejsce na JS -->
+    <script>
+    // kod JS
+      
+
+
+    $('#przycisk').click(()=>{
+
+        let wektorLiczb = $('#liczby').val().split(';');
+        //let wektorLiczb = liczby.split(';');
+
+        let sumaLiczb = 0;
+
+        wektorLiczb.forEach((liczba)=>{
+            //sumaLiczb = sumaLiczb + liczba;
+            sumaLiczb += parseInt(liczba);
+        });
+
+
+        //console.log(sumaLiczb/wektorLiczb.length);
+        document.getElementById('srednia').innerText = sumaLiczb/wektorLiczb.length;
+    });
+
+
+    </script>
+
+</body>
+</html>
